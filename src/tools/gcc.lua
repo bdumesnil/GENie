@@ -110,6 +110,14 @@
 			ar         = "orbis-ar",
 			cppflags   = "-MMD -MP",
 		},
+		ARM64 = {
+			cc         = "clang",
+			cxx        = "clang++",
+			ar         = "llvm-ar",
+			ld         = "ld.lld",
+			cppflags   = "-MMD -MP --target=aarch64-elf",
+			ldflags    = "-m aarch64elf",
+		},
 		Emscripten = {
 			cc         = "$(EMSCRIPTEN)/emcc",
 			cxx        = "$(EMSCRIPTEN)/em++",

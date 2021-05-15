@@ -402,6 +402,9 @@
 		if platform.ar then
 			_p('  AR         = %s', platform.ar)
 		end
+		if platform.ld then
+			_p('  LD         = %s', platform.ld)
+		end
 	end
 
 
@@ -491,6 +494,10 @@
 			end
 		else
 			local tool = iif(cfg.language == "C", "CC", "CXX")
+			local platform = cc.platforms[cfg.platform]
+			if platform.ld then
+				tool = "LD"
+			end
 			local startgroup = ''
 			local endgroup = ''
 			if (cfg.flags.LinkSupportCircularDependencies) then
