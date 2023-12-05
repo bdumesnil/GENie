@@ -124,8 +124,11 @@
 		end
 		_p(2, '<ConfigurationType>%s</ConfigurationType>', vc2010.config_type(cfg))
 		_p(2, '<UseDebugLibraries>%s</UseDebugLibraries>', iif(optimisation(cfg) == "Disabled","true","false"))
-		_p(2, '<PlatformToolset>%s</PlatformToolset>',     premake.vstudio.toolset)
-
+		if cfg.customtoolset ~= nil and cfg.customtoolset ~= "" then
+			_p(2, '<PlatformToolset>%s</PlatformToolset>', cfg.customtoolset)
+		else
+			_p(2, '<PlatformToolset>%s</PlatformToolset>', premake.vstudio.toolset)
+		end
 		if os.is64bit() then
 			_p(2, '<PreferredToolArchitecture>x64</PreferredToolArchitecture>')
 		end
@@ -137,7 +140,11 @@
 		if cfg.flags.Managed then
 			_p(2,'<CLRSupport>true</CLRSupport>')
 		end
-
+		if is2019 == true and cfg.platform == "x64" then
+			if cfg.flags.AddressSanitizer then
+				_p(2,'<EnableASAN>true</EnableASAN>')
+			end
+		end
 		if cfg.platform == "TegraAndroid" then
 			if cfg.androidtargetapi then
 				_p(2,'<AndroidTargetAPI>android-%s</AndroidTargetAPI>', cfg.androidtargetapi)
@@ -225,7 +232,6 @@
 			_p(2,'<IntDir>%s</IntDir>', premake.esc(intdir))
 			_p(2,'<TargetName>%s</TargetName>', premake.esc(path.getbasename(target.name)))
 			_p(2,'<TargetExt>%s</TargetExt>', premake.esc(path.getextension(target.name)))
-
 			if cfg.kind == "SharedLib" then
 				local ignore = (cfg.flags.NoImportLib ~= nil)
 				_p(2,'<IgnoreImportLibrary>%s</IgnoreImportLibrary>', tostring(ignore))
