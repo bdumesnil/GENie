@@ -179,6 +179,10 @@
 	function path.isappxmanifest(fname)
 		return path.hasextension(fname, ".appxmanifest")
 	end
+	
+	function path.ismanifest(fname)
+		return path.hasextension(fname, ".manifest")
+	end
 
 	function path.isandroidbuildfile(fname)
 		return path.getname(fname) == "AndroidManifest.xml"
