@@ -22,9 +22,7 @@ Supported project generators:
 Download (stable)
 -----------------
 
-[![Build Status](https://travis-ci.org/bkaradzic/GENie.svg?branch=master)](https://travis-ci.org/bkaradzic/GENie)
-
-	version 1157 (commit 5fecb127855ee069df345f20d17fea78220fee93)
+	version 1170 (commit 22cc907a4351db46c55f73e6aa901f1b2f0c52ad)
 
 Linux:  
 https://github.com/bkaradzic/bx/raw/master/tools/bin/linux/genie
@@ -46,7 +44,11 @@ Documentation
 -------------
 
 [Scripting Reference](https://github.com/bkaradzic/genie/blob/master/docs/scripting-reference.md#scripting-reference)  
-[Introduction to GENie - CppCon 2016](https://onedrive.live.com/view.aspx?cid=171ee76e679935c8&page=view&resid=171EE76E679935C8!139573&parId=171EE76E679935C8!18835&authkey=!AKv_SGrgJwxDGDg&app=PowerPoint)
+
+Introduction to GENie - CppCon 2016  
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=_vArtdDTrTM" 
+target="_blank"><img src="http://img.youtube.com/vi/_vArtdDTrTM/0.jpg" 
+alt="Introduction to GENie - CppCon 2016" width="640" height="480" border="0" /></a>
 
 History
 -------
@@ -123,13 +125,13 @@ of Premake 4.4 beta 5, and there is no intention to keep it compatible with it.
  - Added `iostargetplatformversion`, `macostargetplatformversion`, and
    `tvostargetplatformversion` to specify XCode OS target version.
  - Removed the `xcode3`, and `xcode4` actions.
- - Added the `xcode8`, `xcode9`, `xcode10`, and `xcode11` actions.
+ - Added the `xcode8`, `xcode9`, `xcode10`, `xcode11` and `xcode14` actions.
  - Added `systemincludedirs` that are always searched after directories added
    using `includedirs`.
  - Added `NoRuntimeChecks` flag to disable Basic Runtime Checks in non-optimized
    Visual Studio builds.
  - Added support for Nintendo Switch projects.
- - Added flags for selecting C++ standard: `Cpp11`, `Cpp14`, `Cpp17`,
+ - Added flags for selecting C++ standard: `Cpp11`, `Cpp14`, `Cpp17`, `Cpp20`
    and `CppLatest`.
  - Added `xcodeprojectopts` and `xcodetargetopts`.
  - Added vs2019 support.
@@ -138,6 +140,7 @@ of Premake 4.4 beta 5, and there is no intention to keep it compatible with it.
  - Added support for generating Switch/NX32 Switch/NX64 projects.
  - Removed FASTBuild.
  - Removed Qbs support.
+ - Added vs2022 support.
 
 build - GENie build system scripts
 ----------------------------------
