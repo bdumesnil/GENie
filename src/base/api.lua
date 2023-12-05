@@ -817,6 +817,7 @@ end
 		usagecopy = true,
 		allowed = function(value)
 			local allowed_flags = {
+				AddressSanitizer = 1,
 				AntBuildDebuggable = 1,
 				C7DebugInfo = 1,
 				Cpp11 = 1,
@@ -1557,7 +1558,11 @@ end
 		kind  = "list",
 		scope = "project",
 	}
-
+	newapifield {
+		name  = "customtoolset",
+		kind  = "string",
+		scope = "config",
+	}
 --
 -- End of API
 --
