@@ -142,7 +142,7 @@
 		if cfg.flags.Managed then
 			_p(2,'<CLRSupport>true</CLRSupport>')
 		end
-		if is2019 == true and cfg.platform == "x64" then
+		if ( is2019 == true or is2022 == true ) and cfg.platform == "x64" then
 			if cfg.flags.AddressSanitizer then
 				_p(2,'<EnableASAN>true</EnableASAN>')
 			end
@@ -1166,6 +1166,7 @@
 				None = {},
 				ResourceCompile = {},
 				AppxManifest = {},
+				Manifest = {},
 				AndroidBuild = {},
 				Natvis = {},
 				Image = {},
@@ -1188,7 +1189,8 @@
 					table.insert(sortedfiles.Image, file)
 				elseif path.isappxmanifest(file.name) then
 					foundAppxManifest = true
-					table.insert(sortedfiles.AppxManifest, file)
+				elseif path.ismanifest(file.name) then
+					table.insert(sortedfiles.Manifest, file)
 				elseif path.isandroidbuildfile(file.name) then
 					table.insert(sortedfiles.AndroidBuild, file)
 				elseif path.isnatvis(file.name) then
@@ -1253,6 +1255,7 @@
 		vc2010.customtaskgroup(prj)
 		vc2010.simplefilesgroup(prj, "ResourceCompile")
 		vc2010.simplefilesgroup(prj, "AppxManifest")
+		vc2010.simplefilesgroup(prj, "Manifest")
 		vc2010.simplefilesgroup(prj, "AndroidBuild")
 		vc2010.simplefilesgroup(prj, "Natvis")
 		vc2010.deploymentcontentgroup(prj, "Image")
