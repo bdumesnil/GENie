@@ -142,7 +142,7 @@
 		if cfg.flags.Managed then
 			_p(2,'<CLRSupport>true</CLRSupport>')
 		end
-		if ( is2019 == true or is2022 == true ) and cfg.platform == "x64" then
+		if ( is2019 == true or is2022 == true or is2026 == true ) and cfg.platform == "x64" then
 			if cfg.flags.AddressSanitizer then
 				_p(2,'<EnableASAN>true</EnableASAN>')
 			end
